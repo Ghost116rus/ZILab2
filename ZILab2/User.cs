@@ -17,20 +17,14 @@
 
         public void modif(int num, string ri)
         {
-            if (ri == "Чтение")
-            {
-                this._access[num] = this._access[num] | 4;
-            }
+            if (ri == "Чтение")            
+                this._access[num] = this._access[num] | 4;            
 
-            if (ri == "Запись")
-            {
-                this._access[num] = this._access[num] | 2;
-            }
+            if (ri == "Запись")            
+                this._access[num] = this._access[num] | 2;            
 
-            if (ri == "Передача прав")
-            {
-                this._access[num] = this._access[num] | 1;
-            }
+            if (ri == "Передача прав")            
+                this._access[num] = this._access[num] | 1;            
         }
 
         public void right()
@@ -38,10 +32,10 @@
             Console.WriteLine("Ваши права");
             for (int i = 0; i < this._objectsForAccess; i++)
             {
-                int x = this._access[i];
-                int read = (x / (int)Math.Pow(2, (3 - 1))) % 2;
-                int write = (x / (int)Math.Pow(2, (2 - 1))) % 2;
-                int rgh = (x / (int)Math.Pow(2, (1 - 1))) % 2;
+                int userRights = this._access[i];
+                int read = (userRights / (int)Math.Pow(2, (3 - 1))) % 2;
+                int write = (userRights / (int)Math.Pow(2, (2 - 1))) % 2;
+                int rgh = (userRights / (int)Math.Pow(2, (1 - 1))) % 2;
                 if (read == 1 && write == 1 && rgh == 1)
                 {
                     Console.WriteLine("Файл" + (i + 1) + ": Полные права");
@@ -70,8 +64,8 @@
                     {
                         Console.WriteLine("Введите номер файла: ");
                         int num_obj = Convert.ToInt32(Console.ReadLine());
-                        int x = this._access[num_obj - 1];
-                        int read = (x / (int)Math.Pow(2, (3 - 1))) % 2;
+                        int userRights = this._access[num_obj - 1];
+                        int read = (userRights / (int)Math.Pow(2, (3 - 1))) % 2;
                         if (read == 1)
                         {
                             Console.WriteLine("Операция прошла успешно. \n");
@@ -83,8 +77,8 @@
                     {
                         Console.WriteLine("Введите номер файла: ");
                         int num_obj = Convert.ToInt32(Console.ReadLine());
-                        int x = this._access[num_obj - 1];
-                        int write = (x / (int)Math.Pow(2, (2 - 1))) % 2;
+                        int userRights = this._access[num_obj - 1];
+                        int write = (userRights / (int)Math.Pow(2, (2 - 1))) % 2;
                         if (write == 1)
                         {
                             Console.WriteLine("Операция прошла успешно. \n");
@@ -95,14 +89,14 @@
                     {
                         Console.WriteLine("Право на какой объект передаётся?");
                         int num_obj = Convert.ToInt32(Console.ReadLine());
-                        int x = this._access[num_obj - 1];
-                        int rgh = (x / (int)Math.Pow(2, (1 - 1))) % 2;
+                        int userRights = this._access[num_obj - 1];
+                        int rgh = (userRights / (int)Math.Pow(2, (1 - 1))) % 2;
                         if (rgh == 1)
                         {
                             Console.WriteLine("Какое право передаётся?");
                             string ri = Console.ReadLine();
-                            int read = (x / (int)Math.Pow(2, (3 - 1))) % 2;
-                            int write = (x / (int)Math.Pow(2, (2 - 1))) % 2;
+                            int read = (userRights / (int)Math.Pow(2, (3 - 1))) % 2;
+                            int write = (userRights / (int)Math.Pow(2, (2 - 1))) % 2;
                             if ((ri == "Чтение" && read == 1) || (ri == "Запись" && write == 1) || (ri == "Передача прав" && rgh == 1))
                             {
                                 Console.WriteLine("Какому пользователю передаётся право? Введите имя пользователя: ");
