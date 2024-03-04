@@ -7,7 +7,7 @@ class Program
         int SubjectsInSystem = 8;
         int objectsForAccess = 3;
 
-        List<string> names = new List<string>() { "Дамир", "Андрей", "Булат", "Айнур", "Русик", "Марсель", "Коля" };
+        List<string> names = new List<string>() { "Дамир", "Андрей", "Булат", "Айнур", "Русик", "Марсель", "Николай" };
         List<User> Users = new List<User>() { };
         List<string> data = new List<string>() { };
 
